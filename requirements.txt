@@ -1,7 +1,4 @@
 Django==1.9.7
-django-guardian==1.4.1
-django-userena==2.0.1
-easy-thumbnails==2.3
-html2text==2014.12.29
+django-crispy-forms==1.6.0
 Pillow==3.3.0
 six==1.10.0

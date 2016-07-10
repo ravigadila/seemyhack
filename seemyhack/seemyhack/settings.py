@@ -29,12 +29,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-    'userena',
-    'guardian',
-    'easy_thumbnails',
+    'crispy_forms',
 
     'hack.apps.HackConfig',
-    'accounts.apps.AccountsConfig'
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -53,7 +51,7 @@ ROOT_URLCONF = 'seemyhack.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates"),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -95,12 +93,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTHENTICATION_BACKENDS = (
-    'userena.backends.UserenaAuthenticationBackend',
-    'guardian.backends.ObjectPermissionBackend',
-    'django.contrib.auth.backends.ModelBackend',
-)
-
 
 LANGUAGE_CODE = 'en-us'
 
@@ -117,14 +109,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), ]
 
-# Userena settings
+AUTH_USER_MODEL = 'accounts.User'
 
-ANONYMOUS_USER_ID = -1
-AUTH_PROFILE_MODULE = 'accounts.UserProfile'
-LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
-LOGIN_URL = '/accounts/signin/'
-LOGOUT_URL = '/accounts/signout/'
+# other app settings
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
