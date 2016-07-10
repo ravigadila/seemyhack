@@ -2,3 +2,4 @@
 * TODO Add sign in View
 * TODO Send confirmation email to user when SignUp
 * TODO Integrate django messages for every action
+* TODO Add user Profile page
