@@ -1,4 +1,5 @@
 Django==1.9.7
+django-crispy-forms==1.6.0
 django-guardian==1.4.1
 django-userena==2.0.1
 easy-thumbnails==2.3
