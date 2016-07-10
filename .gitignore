@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *.py~
 *.html~
+*.*~
 *$py.class
 db.sqlite3
 # C extensions
