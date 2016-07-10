@@ -29,9 +29,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-    'userena',
-    'guardian',
-    'easy_thumbnails',
     'crispy_forms',
 
     'hack.apps.HackConfig',
@@ -121,13 +118,6 @@ STATIC_URL = '/static/'
 
 # other app settings
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
-
-# Userena settings
-ANONYMOUS_USER_ID = -1
-AUTH_PROFILE_MODULE = 'accounts.UserProfile'
-LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
-LOGIN_URL = '/accounts/signin/'
-LOGOUT_URL = '/accounts/signout/'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
