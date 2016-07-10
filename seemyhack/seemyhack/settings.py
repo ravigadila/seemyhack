@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'crispy_forms',
 
     'hack.apps.HackConfig',
-    'accounts.apps.AccountsConfig'
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -93,12 +93,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTHENTICATION_BACKENDS = (
-    'userena.backends.UserenaAuthenticationBackend',
-    'guardian.backends.ObjectPermissionBackend',
-    'django.contrib.auth.backends.ModelBackend',
-)
-
 
 LANGUAGE_CODE = 'en-us'
 
@@ -115,9 +109,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), ]
+
+AUTH_USER_MODEL = 'accounts.User'
 
 # other app settings
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'

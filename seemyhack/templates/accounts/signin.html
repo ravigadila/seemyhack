@@ -1,0 +1,17 @@
+{% extends "accounts/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+  <div class="row main">
+    <div class="panel-heading">
+      <div class="panel-title text-center">
+	<h1 class="title">Login hacks Account</h1>
+	<hr />
+      </div>
+    </div> 
+    <div class="main-login main-center">
+      {% crispy form %}
+    </div>
+  </div>
+</div>
+{% endblock content %}
