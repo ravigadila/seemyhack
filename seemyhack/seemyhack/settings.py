@@ -123,6 +123,10 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'test@gmail.com'
 EMAIL_HOST_PASSWORD = 'test123'
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 try:
     from local_settings import *
 except ImportError:
