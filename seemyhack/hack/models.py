@@ -1,20 +1,28 @@
 from django.db import models
-from accounts.models import User
 from django.utils.translation import ugettext_lazy as _
+from django.template.defaultfilters import slugify
+
+from accounts.models import User
 
 
 class Topic(models.Model):
     name = models.CharField(max_length=155)
     created_by = models.ForeignKey(User)
-    description = models.CharField(max_length=1000)
-
-    def __str__(self):
-        return self.name
-
+    description = models.CharField(max_length=1000, null=True)
+    slug = models.SlugField(max_length=155)
+    
     class Meta:
         verbose_name = _("Topic")
         verbose_name_plural = _("Topics")
         ordering = ("name",)
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.name)
+        super(Hack, self).save(*args, **kwargs)
 
 
 class Hack(models.Model):
@@ -26,6 +34,7 @@ class Hack(models.Model):
     last_edit = models.DateTimeField(null=True)
     is_active = models.BooleanField(default=True)
     topics = models.ManyToManyField(Topic, null=True)
+    slug = models.SlugField(max_length=255)
 
     class Meta:
         verbose_name = _("Hack")
@@ -34,6 +43,11 @@ class Hack(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.title)
+        super(Hack, self).save(*args, **kwargs)
 
 
 class Vote(models.Model):

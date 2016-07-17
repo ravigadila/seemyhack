@@ -6,8 +6,23 @@
     {% block extra_css_imports %}
     {% endblock extra_css_imports %}
   </head>
+  <body>
+  <div class="hack-masthead">
+    <div class="container">
+      <nav class="hack-nav">
+        <a class="hack-nav-item active" href="/">Home</a>
+        <a class="hack-nav-item" href="#">New features</a>
+        <a class="hack-nav-item" href="#">Press</a>
+        <a class="hack-nav-item" href="#">New hires</a>
+        <a class="hack-nav-item" href="#">About</a>
+      </nav>
+    </div>
+  </div>
   {% block content %}
   {% endblock %}
+  </body>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  {% block extra_js_imports %}
+  {% endblock extra_js_imports %}
 </html>
