@@ -1,0 +1,22 @@
+{% extends "hack/base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 blog-main">
+      <div class="panel-title text-center">
+        <h1 class="title">Publish your Hacks</h1>
+        <hr />
+      </div>
+      <div class="main-login main-center">
+        {% crispy form %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+{% block extra_js_imports %}
+<script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+<script src='{% static "js/hack-main.js" %}'></script>
+{% endblock extra_js_imports %}
