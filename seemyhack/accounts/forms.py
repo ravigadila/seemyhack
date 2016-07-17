@@ -68,8 +68,8 @@ class SignupForm(forms.Form):
 
 
 class SignInForm(forms.Form):
-    identification = forms.CharField(label=_("Email or username"), error_messages={'required': _("Either your email or username.")})
-    password = forms.CharField(label=_("Password"))
+    identification = forms.CharField(label=_("Email"), error_messages={'required': _("Enter your email")})
+    password = forms.CharField(label=_("Password"), widget=forms.PasswordInput())
 
     def __init__(self, *args, **kwargs):
         super(SignInForm, self).__init__(*args, **kwargs)
@@ -83,7 +83,7 @@ class SignInForm(forms.Form):
         password = self.cleaned_data.get('password')
 
         if identification and password:
-            user = authenticate(identification=identification, password=password)
+            user = authenticate(email=identification, password=password)
             if user is None:
                 raise forms.ValidationError(_("Please enter a correct username or email and password. Note that both fields are case-sensitive."))
         return self.cleaned_data

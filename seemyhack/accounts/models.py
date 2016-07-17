@@ -7,6 +7,9 @@ class User(AbstractUser):
     description = models.CharField(max_length=1000)
     website = models.URLField()
 
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ['username']
+
     def __str__(self):
         return self.email
 
